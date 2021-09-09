@@ -1,5 +1,6 @@
 var score = 0;
 var streak = 0;
+var counter = 0;
 
 document.addEventListener('keyup', function(event) {checkResult();});
 
@@ -25,9 +26,9 @@ function task_generator()
 	if (lvl > 1)
 	{
 		var x = getRandomInt(101);
-		var y = getRandomInt(101);
-		sum = x + y;
-		document.getElementById("start").innerHTML = x + " + " + y + " = " + " ? ";
+	  var y = getRandomInt(101);
+	  sum = x + y;
+	  document.getElementById("start").innerHTML = x + " + " + y + " = " + " ? ";
 	}
 }
 
@@ -40,24 +41,25 @@ function checkResult()
     {
 	  	if(sum == input_from_user)
 	    {
-				score++;
-				streak++;
-				console.log(streak);
+	    	streak++;
+	    	console.log(streak); 
+	    	score = score + 1 + howMuchTimesDivided(streak, 6);
 				task_generator();
 				/*console.log(score);*/
 				document.getElementById("score").innerHTML = "Score: " + score;
+				document.getElementById("streak").innerHTML = "Streak: " + streak;
 				document.getElementById("input").value = "";
 				/*console.log(sum);
 				console.log(input_from_user);*/
 			}
 			else
-			{
-				score--;
+			{ 
 				streak = 0;
-				console.log(streak);
+				score--;
 				task_generator();
 				/*console.log(score);*/
 				document.getElementById("score").innerHTML = "Score: " + score;
+				document.getElementById("streak").innerHTML = "Streak: " + streak;
 				document.getElementById("input").value = "";
 				/*console.log(sum);
 				console.log(input_from_user);*/
@@ -81,27 +83,20 @@ function finish () {
 
 function difficulty ()
 {
-	var lvl = 1;
-	if (score == 10)
-	{
-		lvl++;
-	}
-	else if (score == 20)
-	{
-		lvl++;
-	}
-	else if (score == 30)
-	{
-		lvl++;
-	}	
-	else if (score == 40)
-	{
-		lvl++;
-	}
-	else if (score == 50)
+	let lvl = 1;
+	if (score%10 == 0 && score != 0) 
 	{
 		lvl++;
 	}
 	return lvl;
 }
-	
+
+function howMuchTimesDivided (x, y)
+{
+	if (x % y == 0)
+	{
+		counter++;
+	}
+	console.log(counter);
+	return counter;
+}

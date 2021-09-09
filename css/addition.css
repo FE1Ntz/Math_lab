@@ -12,9 +12,20 @@
 	font-family: monospace;
 }
 .block2{
-	text-align: center;
+	text-align: left;
 	padding-top: 2px;
 	font-family: monospace;
+	width: 400px;
+}
+.block2_1{
+	width: 200px;
+	float: left;
+	text-align: center;
+}
+.block2_2{
+	width: 200px;
+	float: right;
+	text-align: center;
 }
 .block3{
 	text-align: center;
