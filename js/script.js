@@ -77,6 +77,8 @@ function finish () {
 		document.getElementById("finishbutton").disabled = true;
 		document.getElementsByClassName("finish")[0].style.backgroundColor = '#FF6565';
 		score = 0;
+		streak = 0;
+		document.getElementById("streak").innerHTML = "Streak: " + score;
 		document.getElementById("score").innerHTML = "Score: " + score;
 	}
 }
